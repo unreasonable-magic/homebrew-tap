@@ -1,8 +1,8 @@
 cask "whinge" do
-  version "0.1.4"
-  sha256 "3a168b299bff19a1f9a1e3611d6289cf670af466c2913df3434d9c386ce51cab"
+  version "0.1.5"
+  sha256 "9e4e8e913d164c077850f05df37648c1aa7038b9e52e9e6016448013d4e5db90"
 
-  url "https://downloads.whinge.computer/releases/#{version}-3a168b299bff19a1/Whinge-#{version}.dmg"
+  url "https://downloads.whinge.computer/releases/#{version}-9e4e8e913d164c07/Whinge-#{version}.dmg"
   name "Whinge"
   desc "Record spoken feedback and annotate the screen"
   homepage "https://whinge.computer/"
@@ -14,6 +14,8 @@ cask "whinge" do
     end
   end
 
+  # Whinge updates itself (Sparkle), so `brew upgrade` leaves it be unless asked with --greedy.
+  auto_updates true
   depends_on arch: :arm64
   depends_on macos: :tahoe
 

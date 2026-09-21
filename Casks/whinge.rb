@@ -1,8 +1,8 @@
 cask "whinge" do
-  version "0.1.5"
-  sha256 "9e4e8e913d164c077850f05df37648c1aa7038b9e52e9e6016448013d4e5db90"
+  version "0.1.6"
+  sha256 "e7c46f73286754d30b34b6527d973dade8a08999a35296f52701ec4b55c83ce5"
 
-  url "https://downloads.whinge.computer/releases/#{version}-9e4e8e913d164c07/Whinge-#{version}.dmg"
+  url "https://downloads.whinge.computer/releases/#{version}-e7c46f73286754d3/Whinge-#{version}.dmg"
   name "Whinge"
   desc "Record spoken feedback and annotate the screen"
   homepage "https://whinge.computer/"

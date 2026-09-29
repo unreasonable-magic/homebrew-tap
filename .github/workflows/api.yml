@@ -1,0 +1,41 @@
+# Keeps api/cask/*.json in step with Casks/*.rb. Release scripts update a cask by committing the .rb
+# alone; this regenerates the JSON from it and commits the result. Its own commit doesn't trigger
+# another run, because pushes made with GITHUB_TOKEN never start workflows.
+name: Cask API
+
+on:
+  push:
+    branches: [main]
+    paths: ["Casks/**", "bin/generate-api", ".github/workflows/api.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cask-api
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tap this commit
+        run: |
+          brew tap unreasonable-magic/tap "$GITHUB_WORKSPACE"
+          git -C "$(brew --repository unreasonable-magic/tap)" checkout --quiet "$GITHUB_SHA"
+          brew trust unreasonable-magic/tap
+      - name: Generate
+        run: brew ruby bin/generate-api
+      - name: Commit
+        run: |
+          git add api
+          if git diff --cached --quiet; then
+            echo "api/cask is current"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit --quiet -m "api: regenerate cask metadata"
+            git push
+          fi

@@ -1,0 +1,26 @@
+#!/usr/bin/env -S brew ruby
+# Writes api/cask/<token>.json for each cask in this tap, in the format formulae.brew.sh publishes,
+# so tools that read casks without Homebrew can install them. mise's `brew-cask:` packages fetch
+# https://raw.githubusercontent.com/unreasonable-magic/homebrew-tap/HEAD/api/cask/<token>.json.
+#
+# Homebrew only loads casks from an installed tap, so this reads the installed
+# unreasonable-magic/tap and writes api/cask/ in the current directory.
+# .github/workflows/api.yml runs it on every push that changes a cask.
+
+output = Pathname.pwd/"api/cask"
+tap = Tap.fetch("unreasonable-magic/tap")
+odie "#{tap} isn't installed; run `brew tap #{tap}` first" unless tap.installed?
+
+output.rmtree if output.exist?
+output.mkpath
+Homebrew::API.with_no_api_env do
+  Cask::Cask.generating_hash!
+  latest = MacOSVersion.new(HOMEBREW_MACOS_NEWEST_SUPPORTED).to_sym
+  Homebrew::SimulateSystem.with(os: latest, arch: :arm) do
+    tap.cask_files.sort.each do |path|
+      cask = Cask::CaskLoader.load(path)
+      (output/"#{cask.token}.json").write("#{JSON.pretty_generate(cask.to_hash_with_variations)}\n")
+      puts "api/cask/#{cask.token}.json"
+    end
+  end
+end

@@ -1,0 +1,81 @@
+{
+  "token": "whinge",
+  "full_token": "unreasonable-magic/tap/whinge",
+  "old_tokens": [],
+  "tap": "unreasonable-magic/tap",
+  "name": [
+    "Whinge"
+  ],
+  "desc": "Record spoken feedback and annotate the screen",
+  "homepage": "https://whinge.computer/",
+  "url": "https://downloads.whinge.computer/releases/0.2.0-8ba3a4478330d6ca/Whinge-0.2.0.dmg",
+  "url_specs": {},
+  "version": "0.2.0",
+  "autobump": true,
+  "no_autobump_message": null,
+  "skip_livecheck": false,
+  "installed": null,
+  "installed_time": null,
+  "bundle_version": "8",
+  "bundle_short_version": "0.2.0",
+  "pinned": false,
+  "pinned_version": null,
+  "outdated": false,
+  "sha256": "8ba3a4478330d6ca5bede83c0296cd010911cea35bdf687efdaca9e05e05055e",
+  "artifacts": [
+    {
+      "app": [
+        "Whinge.app"
+      ],
+      "target": "/Applications/Whinge.app"
+    },
+    {
+      "binary": [
+        "$APPDIR/Whinge.app/Contents/Helpers/whinge"
+      ],
+      "target": "$HOMEBREW_PREFIX/bin/whinge"
+    }
+  ],
+  "caveats": null,
+  "caveats_rosetta": null,
+  "depends_on": {
+    "arch": [
+      {
+        "type": "arm",
+        "bits": 64
+      }
+    ],
+    "macos": {
+      ">=": [
+        "26"
+      ]
+    }
+  },
+  "conflicts_with": null,
+  "container": null,
+  "rename": [],
+  "auto_updates": true,
+  "deprecated": false,
+  "deprecation_date": null,
+  "deprecation_reason": null,
+  "deprecation_replacement_formula": null,
+  "deprecation_replacement_cask": null,
+  "deprecate_args": null,
+  "disabled": false,
+  "disable_date": null,
+  "disable_reason": null,
+  "disable_replacement_formula": null,
+  "disable_replacement_cask": null,
+  "disable_args": null,
+  "tap_git_head": "da2c923288ca758cd83bc27e4f7e25c1dfbe29a2",
+  "languages": [],
+  "ruby_source_path": "Casks/whinge.rb",
+  "ruby_source_checksum": {
+    "sha256": "3a484ded2d0fffb1b660d543380d70c998a5e1560a0e0b0070c22b2e9e6aed37"
+  },
+  "variations": {},
+  "supported_platforms": [
+    "arm64_golden_gate",
+    "arm64_tahoe"
+  ]
+}

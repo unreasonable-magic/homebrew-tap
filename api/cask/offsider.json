@@ -1,16 +1,16 @@
 {
-  "token": "whinge",
-  "full_token": "unreasonable-magic/tap/whinge",
+  "token": "offsider",
+  "full_token": "unreasonable-magic/tap/offsider",
   "old_tokens": [],
   "tap": "unreasonable-magic/tap",
   "name": [
-    "Whinge"
+    "Offsider"
   ],
-  "desc": "Record spoken feedback and annotate the screen",
-  "homepage": "https://whinge.computer/",
-  "url": "https://downloads.whinge.computer/releases/0.2.0-8ba3a4478330d6ca/Whinge-0.2.0.dmg",
+  "desc": "Small HTML apps beside your work",
+  "homepage": "https://offsider.website/",
+  "url": "https://offsider.website/releases/0.1.0-1/Offsider-0.1.0.zip",
   "url_specs": {},
-  "version": "0.2.0",
+  "version": "0.1.0",
   "autobump": true,
   "no_autobump_message": null,
   "skip_livecheck": false,
@@ -21,19 +21,26 @@
   "pinned": false,
   "pinned_version": null,
   "outdated": false,
-  "sha256": "8ba3a4478330d6ca5bede83c0296cd010911cea35bdf687efdaca9e05e05055e",
+  "sha256": "4834df1db91646c2f61e27599713aa10886cadfe6fc4363d2fe5445f47269a5d",
   "artifacts": [
     {
       "app": [
-        "Whinge.app"
+        "Offsider.app"
       ],
-      "target": "/Applications/Whinge.app"
+      "target": "/Applications/Offsider.app"
     },
     {
       "binary": [
-        "$APPDIR/Whinge.app/Contents/Helpers/whinge"
+        "$APPDIR/Offsider.app/Contents/Helpers/offsider"
       ],
-      "target": "$HOMEBREW_PREFIX/bin/whinge"
+      "target": "$HOMEBREW_PREFIX/bin/offsider"
+    },
+    {
+      "zap": [
+        {
+          "trash": "~/Library/Application Support/Offsider"
+        }
+      ]
     }
   ],
   "caveats": null,
@@ -69,9 +76,9 @@
   "disable_args": null,
   "tap_git_head": "9e50db38a35bed8262b93f0e7a56697c9fe02b4f",
   "languages": [],
-  "ruby_source_path": "Casks/whinge.rb",
+  "ruby_source_path": "Casks/offsider.rb",
   "ruby_source_checksum": {
-    "sha256": "3a484ded2d0fffb1b660d543380d70c998a5e1560a0e0b0070c22b2e9e6aed37"
+    "sha256": "445ffda6aee07f50c30e344af4c29b353902d65cb02eb33774ffd3134c37ba19"
   },
   "variations": {},
   "supported_platforms": [
